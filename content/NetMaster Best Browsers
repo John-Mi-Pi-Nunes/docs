@@ -1,0 +1,607 @@
+$ 1
+  2 
+Network and Css
+---
+title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+featuredLinks:
+  gettingStarted:
+    - /get-started/getting-started-with-git/set-up-git
+    - /authentication/connecting-to-github-with-ssh
+    - /repositories/creating-and-managing-repositories
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+  popular:
+    - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+    - /authentication
+    - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
+    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /pages
+redirect_from:
+  - /github
+  - /articles
+  - /common-issues-and-questions
+  - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
+  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+children:
+  - search
+  - get-started
+  - account-and-profile
+  - authentication
+  - repositories
+  - admin
+  - billing
+  - site-policy
+  - organizations
+  - code-security
+  - pull-requests
+  - issues
+  - actions
+  - copilot
+  - codespaces
+  - migrations
+  - packages
+  - search-github
+  - apps
+  - webhooks
+  - rest
+  - graphql
+  - github-cli
+  - discussions
+  - sponsors
+  - communities
+  - pages
+  - education
+  - desktop
+  - early-access
+  - support
+  - video-transcripts
+  - contributing
+childGroups:
+  - name: Get started
+    octicon: RocketIcon
+    children:
+      - get-started
+      - migrations
+      - account-and-profile
+      - authentication
+      - billing
+      - site-policy
+  - name: Collaborative coding
+    octicon: CommentDiscussionIcon
+    children:
+      - codespaces
+      - repositories
+      - pull-requests
+      - discussions
+      - copilot
+  - name: CI/CD and DevOps
+    octicon: GearIcon
+    children:
+      - actions
+      - packages
+      - pages
+  - name: Security
+    octicon: ShieldLockIcon
+    children:
+      - code-security
+      - code-security/supply-chain-security
+      - code-security/security-advisories
+      - code-security/dependabot
+      - code-security/code-scanning
+      - code-security/secret-scanning
+  - name: Client apps
+    octicon: DeviceMobileIcon
+    children:
+      - github-cli
+      - desktop
+  - name: Project management
+    octicon: ProjectIcon
+    children:
+      - issues
+      - issues/planning-and-tracking-with-projects
+      - search-github
+  - name: Developers
+    octicon: CodeSquareIcon
+    children:
+      - apps
+      - rest
+      - graphql
+      - webhooks
+  - name: Enterprise and Teams
+    octicon: OrganizationIcon
+    children:
+      - organizations
+      - admin
+  - name: Community
+    octicon: GlobeIcon
+    children:
+      - communities
+      - sponsors
+      - education
+      - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - electron
+      - codeql
+      - npm
+externalProducts:
+  electron:
+    id: electron
+    name: Electron
+    href: 'https://electronjs.org/docs/latest'
+    external: true
+  codeql:
+    id: codeql
+    name: CodeQL
+    href: 'https://codeql.github.com/docs'
+    external: true
+  npm:
+    id: npm
+    name: npm
+    href: 'https://docs.npmjs.com/'
+    external: true
+---
+
+{
+  "name": "docs.github.com",
+  "private": true,
+  "repository": "https://github.com/github/docs",
+  "license": "(MIT AND CC-BY-4.0)",
+  "author": {
+    "name": "GitHub",
+    "email": "opensource+docs@github.com",
+    "url": "https://github.com/github/docs"
+  },
+  "type": "module",
+  "imports": {
+    "#src/*": {
+      "default": "./src/*"
+    }
+  },
+  "exports": "./src/frame/server.ts",
+  "scripts": {
+    "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
+    "analyze-text": "node src/search/scripts/analyze-text.js",
+    "archive-version": "node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js",
+    "audit-log-sync": "tsx src/audit-logs/scripts/sync.ts",
+    "build": "next build",
+    "check-content-type": "node src/workflows/check-content-type.js",
+    "check-github-github-links": "node src/links/scripts/check-github-github-links.js",
+    "close-dangling-prs": "tsx src/workflows/close-dangling-prs.ts",
+    "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
+    "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
+    "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
+    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
+    "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
+    "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
+    "dev": "cross-env npm start",
+    "find-orphaned-assets": "node src/assets/scripts/find-orphaned-assets.js",
+    "find-orphaned-features": "tsx src/data-directory/scripts/find-orphaned-features/index.ts",
+    "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
+    "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
+    "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
+    "index": "tsx src/search/scripts/index/index.ts",
+    "index-elasticsearch": "node src/search/scripts/index-elasticsearch.js",
+    "index-test-fixtures": "./src/search/scripts/index-test-fixtures.sh",
+    "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
+    "lint-content": "node src/content-linter/scripts/lint-content.js",
+    "lint-translation": "vitest src/content-linter/tests/lint-files.js",
+    "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
+    "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
+    "move-content": "node src/content-render/scripts/move-content.js",
+    "openapi-docs": "node src/rest/docs.js",
+    "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
+    "post-lints": "node src/content-linter/scripts/post-lints.js",
+    "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
+    "precompute-pageinfo": "tsx src/pageinfo/scripts/precompute-pageinfo.ts",
+    "prepare": "husky src/workflows/husky",
+    "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
+    "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
+    "prevent-pushes-to-main": "node src/workflows/prevent-pushes-to-main.js",
+    "release-banner": "node src/ghes-releases/scripts/release-banner.js",
+    "remove-version-markup": "node src/ghes-releases/scripts/remove-version-markup.js",
+    "rendered-content-link-checker-cli": "node src/links/scripts/rendered-content-link-checker-cli.js",
+    "rest-dev": "node src/rest/scripts/update-files.js",
+    "show-action-deps": "echo 'Action Dependencies:' && rg '^[\\s|-]*(uses:.*)$' .github -I -N --no-heading -r '$1$2' | sort | uniq | cut -c 7-",
+    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.ts",
+    "start-all-languages": "cross-env NODE_ENV=development tsx src/frame/server.ts",
+    "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test tsx src/frame/server.ts",
+    "symlink-from-local-repo": "node src/early-access/scripts/symlink-from-local-repo.js",
+    "sync-rest": "node src/rest/scripts/update-files.js",
+    "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
+    "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
+    "sync-search-indices": "node src/search/scripts/sync-search-indices.js",
+    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
+    "sync-webhooks": "src/rest/scripts/update-files.js -o webhooks",
+    "test": "vitest",
+    "test-local-dev": "node src/workflows/test-local-dev.js",
+    "test-moved-content": "tsx src/content-render/scripts/test-moved-content.ts",
+    "tsc": "tsc --noEmit",
+    "unallowed-contributions": "node src/workflows/unallowed-contributions.js",
+    "update-data-and-image-paths": "node src/early-access/scripts/update-data-and-image-paths.js",
+    "update-internal-links": "node src/links/scripts/update-internal-links.js",
+    "validate-asset-images": "node src/assets/scripts/validate-asset-images.js",
+    "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
+    "warmup-remotejson": "node src/archives/scripts/warmup-remotejson.js"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
+    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
+    "{content,data}/**/*.md": "npm run lint-content -- --precommit --paths"
+  },
+  "nodemonConfig": {
+    "ext": "ts,js,json,yml,md,html,scss",
+    "exec": "tsx",
+    "ignore": [
+      "assets",
+      "script",
+      "tests",
+      "content",
+      "translations",
+      "data/reusables",
+      "data/variables",
+      "data/glossaries",
+      "data/product-examples",
+      "data/learning-tracks",
+      "rest-api-description",
+      "semmle-code"
+    ]
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.{yml,yaml}"
+        ],
+        "options": {
+          "singleQuote": true
+        }
+      },
+      {
+        "files": [
+          "**/*.{ts,tsx,js,mjs}"
+        ],
+        "options": {
+          "printWidth": 100,
+          "semi": false,
+          "singleQuote": true
+        }
+      }
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2020": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "requireConfigFile": "false",
+      "sourceType": "module"
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": true,
+        "node": true
+      }
+    },
+    "extends": [
+      "eslint:recommended",
+      "standard",
+      "plugin:import/errors",
+      "prettier"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "packageDir": "."
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.tsx",
+          "**/*.ts"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+          "@typescript-eslint",
+          "primer-react",
+          "jsx-a11y"
+        ],
+        "extends": [
+          "plugin:primer-react/recommended",
+          "plugin:jsx-a11y/recommended"
+        ],
+        "rules": {
+          "camelcase": "off",
+          "no-undef": "off",
+          "no-unused-vars": "off",
+          "no-use-before-define": "off",
+          "@typescript-eslint/no-unused-vars": "error",
+          "jsx-a11y/no-onchange": "off"
+        }
+      }
+    ],
+    "ignorePatterns": [
+      "tmp/*",
+      "!/.*",
+      "/.next/",
+      "src/bookmarklets/*",
+      "src/open-source/scripts/add-pr-links.js",
+      "src/open-source/scripts/pr-link-source.js",
+      "rest-api-description/",
+      "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
+    ]
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "8.13.1",
+    "@github/failbot": "0.8.3",
+    "@horizon-rs/language-guesser": "0.1.1",
+    "@octokit/plugin-retry": "6.0.1",
+    "@octokit/request-error": "6.1.1",
+    "@primer/behaviors": "^1.5.1",
+    "@primer/css": "^21.3.1",
+    "@primer/octicons": "^19.9.0",
+    "@primer/octicons-react": "^19.9.0",
+    "@primer/react": "36.20.0",
+    "accept-language-parser": "^1.5.0",
+    "ajv": "^8.16.0",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^3.0.1",
+    "bottleneck": "2.19.5",
+    "boxen": "7.1.1",
+    "cheerio": "^1.0.0-rc.11",
+    "cheerio-to-text": "0.2.4",
+    "classnames": "^2.5.1",
+    "connect-datadog": "0.0.9",
+    "connect-timeout": "1.9.0",
+    "cookie-parser": "^1.4.6",
+    "cuss": "2.2.0",
+    "dayjs": "^1.11.3",
+    "dotenv": "^16.4.5",
+    "escape-string-regexp": "5.0.0",
+    "express": "4.19.2",
+    "express-rate-limit": "7.3.0",
+    "fastest-levenshtein": "1.0.16",
+    "file-type": "19.0.0",
+    "flat": "^6.0.1",
+    "github-slugger": "^2.0.0",
+    "glob": "10.4.1",
+    "got": "^13.0.0",
+    "gray-matter": "^4.0.3",
+    "hast-util-from-parse5": "^8.0.1",
+    "hast-util-to-string": "^2.0.0",
+    "hastscript": "^9.0.0",
+    "helmet": "^7.1.0",
+    "highlight.js": "11.9.0",
+    "highlightjs-curl": "^1.3.0",
+    "hot-shots": "^10.0.0",
+    "html-entities": "^2.5.2",
+    "http-proxy-middleware": "3.0.0",
+    "imurmurhash": "^0.1.4",
+    "is-svg": "5.0.0",
+    "javascript-stringify": "^2.1.0",
+    "js-cookie": "^3.0.1",
+    "js-yaml": "^4.1.0",
+    "liquidjs": "^10.7.0",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "lowdb": "7.0.1",
+    "lowlight": "3.1.0",
+    "markdownlint-rule-helpers": "^0.25.0",
+    "mdast-util-from-markdown": "^2.0.0",
+    "mdast-util-to-hast": "^13.1.0",
+    "mdast-util-to-markdown": "2.1.0",
+    "mdast-util-to-string": "^4.0.0",
+    "morgan": "^1.10.0",
+    "next": "14.2.3",
+    "ora": "^8.0.1",
+    "parse5": "7.1.2",
+    "quick-lru": "7.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "rehype-highlight": "^7.0.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-slug": "^6.0.0",
+    "rehype-stringify": "^10.0.0",
+    "remark-gemoji-to-emoji": "^1.1.0",
+    "remark-gfm": "^4.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "remark-remove-comments": "^1.0.1",
+    "rss-parser": "^3.13.0",
+    "scroll-anchoring": "^0.1.0",
+    "semver": "^7.6.2",
+    "sharp": "0.33.1",
+    "slash": "^5.1.0",
+    "strip-ansi": "7.1.0",
+    "styled-components": "^5.3.5",
+    "swr": "^2.2.4",
+    "tcp-port-used": "1.0.2",
+    "tsx": "4.11.0",
+    "unified": "^11.0.3",
+    "unist-util-visit": "^5.0.0",
+    "url-template": "^3.1.1",
+    "walk-sync": "^3.0.0"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^6.0.0",
+    "@axe-core/playwright": "^4.9.1",
+    "@github/markdownlint-github": "^0.6.2",
+    "@graphql-inspector/core": "^6.1.0",
+    "@graphql-tools/load": "^8.0.0",
+    "@octokit/rest": "^20.1.0",
+    "@playwright/test": "1.44.1",
+    "@types/accept-language-parser": "1.5.6",
+    "@types/connect-datadog": "0.0.10",
+    "@types/connect-timeout": "0.0.39",
+    "@types/cookie": "0.6.0",
+    "@types/cookie-parser": "1.4.7",
+    "@types/express": "4.17.21",
+    "@types/imurmurhash": "^0.1.4",
+    "@types/js-cookie": "^3.0.6",
+    "@types/lodash": "^4.17.0",
+    "@types/lodash-es": "4.17.12",
+    "@types/morgan": "1.9.9",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/tcp-port-used": "1.0.4",
+    "@typescript-eslint/eslint-plugin": "7.0.0",
+    "@typescript-eslint/parser": "6.17.0",
+    "chalk": "^5.0.1",
+    "change-case": "^5.4.4",
+    "commander": "^12.1.0",
+    "cross-env": "^7.0.3",
+    "csp-parse": "0.0.2",
+    "csv-parse": "5.5.6",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-n": "16.6.1",
+    "eslint-plugin-primer-react": "5.1.0",
+    "eslint-plugin-promise": "6.2.0",
+    "event-to-promise": "^0.8.0",
+    "graphql": "^16.8.1",
+    "http-status-code": "^2.1.0",
+    "husky": "^9.0.8",
+    "json-schema-merge-allof": "^0.8.1",
+    "kill-port": "2.0.1",
+    "lint-staged": "^15.2.2",
+    "markdownlint": "^0.34.0",
+    "markdownlint-rule-search-replace": "^1.2.0",
+    "mdast-util-gfm-table": "^2.0.0",
+    "micromark-extension-gfm-table": "^2.0.0",
+    "mkdirp": "^3.0.0",
+    "mockdate": "^3.0.5",
+    "nock": "^13.5.4",
+    "nodemon": "3.1.2",
+    "npm-merge-driver-install": "^3.0.0",
+    "nth-check": "2.1.1",
+    "prettier": "^3.3.0",
+    "rimraf": "^5.0.0",
+    "robots-parser": "^3.0.0",
+    "sass": "^1.77.1",
+    "start-server-and-test": "^2.0.3",
+    "typescript": "^5.4.4",
+    "unist-util-remove": "^4.0.0",
+    "unist-util-visit-parents": "6.0.1",
+    "vitest": "1.6.0",
+    "website-scraper": "^5.3.1"
+  },
+  "overrides": {},
+  "optionalDependencies": {
+    "esm": "^3.2.25"
+  },
+  "engines": {
+    "node": "^18 || ^20"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    ".next/cache"
+  ]
+}
+
+MIT License
+
+Copyright 2024 GitHub
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+Installation
+
+Download the jqGrid package from the www.trirand/blog site section downloads.
+Note the new download manager where you can choose which modules you want to
+include in the download.
+
+In order to use jqGrid 3.5, first a UI theme css file should be loaded.
+Download the desired theme (or build a custom one) from jQueryUI site
+(www.jqueryui.com) and point in your link tag in head section the path to the
+theme css
+
+<link rel="stylesheet" type="text/css" media="screen" href="path_to_ui_css_file/jquery-ui-1.7.1.custom.css" />
+
+where the path_to_ui_css_file is a valid path to the ui theme file
+
+Extract the jqGrid package and copy the ui.jqgrid.css from css directory to
+your webserver directory. It is not necessary that the jqgrid css file is in
+the same directory as those of the jquery ui css.
+
+<link rel="stylesheet" type="text/css" media="screen" href="path_to_jqgrid_css_file/ui.jqgrid.css" />
+
+Starting with this version, jqGrid does not use a loader (which loads the
+needed files one by one), but all the needed code is contained in one file.
+The desired modules can be built using the jqGrid download manager from the
+site pointed above. In order to use this, first a language file should be
+loaded and then the jqgrid file.
+
+Copy the desired language file from js/i18n directory to your web server
+directory where you store the java script files. Every language file is
+named grid.locale-XX.js, where XX is a two-letter code for the language.
+Copy the jquery.jqGid.min.js file to the same or other valid directory in
+your web server
+
+Include both the files in script tags in the head section
+
+<script src="path_to_js_files/grid.locale-en.js" type="text/javascript"></script>
+<script src="path_to_js_files/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+For debugging purposes, I have created a grid.loader.js which does the same
+loading of the files as in previous versions. The location of the file is in
+src directory of the package. In order to use this, the variable pathojsfiles
+should be adjusted to point to the appropriate folder - see 3.4.x docs.
+24.2.96.1315+
